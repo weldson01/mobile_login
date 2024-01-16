@@ -18,7 +18,6 @@ export const loginService = async ({email,password}:ILoginService): Promise<ILog
     try{
         const r = await api.post("/login", {email,password});
         const user:ILoginServiceReturn = {email: r.data.email, id:r.data.id, name:r.data.name, token:r.data.token, typeAccount: r.data.typeAccount} 
-        console.log(user.id)
         return(user);
     }catch(err){
         return(err)

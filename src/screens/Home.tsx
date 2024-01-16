@@ -3,7 +3,7 @@ import { Text, View } from "react-native"
 
 export const Home = ()=>{
     return(
-    <View>
-        <Text>Bem vindo</Text>
+    <View style={{flex:1, alignItems:"center"}}>
+        <Text style={{fontSize: 20}}>Bem vindo</Text>
     </View>)
 }
