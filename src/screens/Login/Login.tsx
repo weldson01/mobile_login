@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Text, Alert } from "react-native"
 import { ILoginServiceReturn, loginService } from "../../services/api"
 import { useNavigation } from "@react-navigation/native"
 import { Form, ImageBackgroundS, ImageS, ScreenHome, TextHome, TextInputS, TextLabel, TouchableS } from "./components"
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getUser, saveUser } from "../../services/userReturnService"
 
 
 export const Login = ()=>{
@@ -14,6 +14,17 @@ export const Login = ()=>{
     const [userS, setUserS] = useState("");
 
     const navigation = useNavigation();
+    
+    async function checkUser(){
+        const userAsync = await getUser();
+
+        if(userAsync.id){
+            navigation.navigate("home");
+        }
+    }
+    useEffect(()=>{
+        checkUser();
+    },[]);
 
      async function handleSubmit(e){
         const response = await loginService({email,password});
@@ -22,31 +33,12 @@ export const Login = ()=>{
         if(response.id != undefined){
             saveUser(response);
             // @ts-ignore 
-            // navigation.navigate("home");
+            navigation.navigate("home");
         }else{
             Alert.alert("Error", "Your acount is not found! try again!");
         }
 
     }   
-
-    const saveUser = async (value)=>{
-        try{
-            await AsyncStorage.setItem("user", JSON.stringify(value))
-            console.log("USER WAS SAVED")
-        }catch(err){
-            console.log(err);
-        }
-    }
-    const getUser =  async ()=>{
-        try{
-            const response = await AsyncStorage.getItem("user");
-            console.log("GET USER: " + response);
-            const responseJ = JSON.parse(response)
-            return responseJ;
-        }catch(err){
-            console.log(err);
-        }
-    }
 
     async function handleShowUser (){
         const user2 = await getUser();
@@ -56,10 +48,6 @@ export const Login = ()=>{
     <ScreenHome>
         <ImageBackgroundS source={require("../../assets/login/background-login.jpg")}>
             <Form>
-                <Text>
-                {user?.name}
-                {userS && userS?.id}
-                </Text>
                 <ImageS source={require("../../assets/login/Perfil-no-photo.jpg")}/>
                 <TextHome>Welcome!</TextHome>
                 <TextLabel>Email:</TextLabel>

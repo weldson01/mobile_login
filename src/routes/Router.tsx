@@ -8,8 +8,8 @@ export const Stack = createNativeStackNavigator();
 export const NavigationApp = ()=>{
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='login' screenOptions={{ headerTransparent:true, statusBarHidden:true, title: null }}>
-                <Stack.Screen name="home" component={Home} />
+            <Stack.Navigator initialRouteName='login' screenOptions={{ headerTransparent:true, statusBarHidden:true, title: null, headerBackVisible:false }}>
+                <Stack.Screen name="home" component={Home}/>
                 <Stack.Screen name="login" component={Login}/>
             </Stack.Navigator>
         </NavigationContainer>
