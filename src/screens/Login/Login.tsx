@@ -40,11 +40,6 @@ export const Login = ()=>{
         }
 
     }   
-
-    async function handleShowUser (){
-        const user2 = await getUser();
-        setUserS(user2)
-    }
     return (
     <ScreenHome>
         <ImageBackgroundS source={require("../../assets/login/background-login.jpg")}>
@@ -57,9 +52,6 @@ export const Login = ()=>{
                 <TextInputS placeholder="Digite sua senha" secureTextEntry={true} onChangeText={setPassword}/>
                 <TouchableS style={{borderRadius: 10}} onPress={handleSubmit}>
                     <Text style={{fontSize:24, color: "#fff"}}>Login</Text>
-                </TouchableS>
-                <TouchableS onPress={handleShowUser}>
-                    <Text>Show User Saved</Text>
                 </TouchableS>
             </Form>
         </ImageBackgroundS>

@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import {styled} from "styled-components/native"
 
 export const PostsView = styled.FlatList`
@@ -23,11 +24,13 @@ export const Body = styled.Text`
 `
 
 export const Posts = ({data})=>{
-
+    const navigation = useNavigation();
     return (
         <PostsView data={data} keyExtractor={({item})=>item?.id} renderItem={({item})=>{
             return (
-                <PostItemV>
+                <PostItemV onTouchEnd={()=>{
+                    navigation.navigate("post", {title: item?.title, body: item?.body})
+                }}>
                     <Title>
                         {item?.title}
                     </Title>

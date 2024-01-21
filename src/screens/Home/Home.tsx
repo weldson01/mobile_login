@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components/native"
 import { getUser } from "../../services/userReturnService";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
 import { IpostService, postService } from "../../services/api";
 import { Posts } from "./components/Posts";
+import { View } from "react-native";
 
 export const Header = styled.View`
     background-color: red;
@@ -31,6 +31,8 @@ export const Home = ()=>{
     const [user,setUser] = useState();
     const [posts,setPosts] = useState<IpostService[]>([{body:"k",createdAt:"s", title: "ll", updateAt: "221", UserId: 1}]);
 
+
+
     async function findUser(){
         const userAux = await getUser()
         if(userAux){
@@ -41,7 +43,6 @@ export const Home = ()=>{
         const postsAux = await postService()
         if(postsAux){
             setPosts(postsAux);
-            console.log(postsAux)
         }
     }
 
@@ -56,9 +57,7 @@ export const Home = ()=>{
             <Title1>Bem-vindo, {user?.name}</Title1>
             <ImageHeader source={require("../../assets/login/Perfil-no-photo.jpg")}></ImageHeader>
         </Header>
-        <View>
-                <Posts data={posts} />
-        </View>
+            <Posts data={posts} />
         </>
     )
 }
