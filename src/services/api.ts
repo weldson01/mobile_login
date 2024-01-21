@@ -23,3 +23,16 @@ export const loginService = async ({email,password}:ILoginService): Promise<ILog
         return(err)
     }
 }
+
+export interface IpostService{
+    UserId: Number;
+    title: String;
+    body: String;
+    createdAt: String;
+    updateAt: String;
+}
+
+export const postService = async ():Promise<IpostService[]> =>{
+    const posts = await api.get("posts")
+    return posts.data
+}

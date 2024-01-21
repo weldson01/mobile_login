@@ -19,6 +19,7 @@ export const Login = ()=>{
         const userAsync = await getUser();
 
         if(userAsync.id){
+            // @ts-ignore
             navigation.navigate("home");
         }
     }
