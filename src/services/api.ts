@@ -36,3 +36,13 @@ export const postService = async ():Promise<IpostService[]> =>{
     const posts = await api.get("posts")
     return posts.data
 }
+
+export const putPostService = async ({token, id, title, body})=>{
+    try{
+        const response = await api.put(`posts/${id}`, {title, body},{headers:{Authorization: token}})
+        return response.data;
+    }catch(err){
+        console.log(err);
+    }
+    
+}

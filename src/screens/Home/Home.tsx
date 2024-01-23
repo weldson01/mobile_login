@@ -4,10 +4,9 @@ import { getUser } from "../../services/userReturnService";
 import { StatusBar } from "expo-status-bar";
 import { IpostService, postService } from "../../services/api";
 import { Posts } from "./components/Posts";
-import { View } from "react-native";
 
 export const Header = styled.View`
-    background-color: red;
+    background-color: #0F1035;
     align-items:center;
     justify-content:center;
     height: 75px;
@@ -15,7 +14,7 @@ export const Header = styled.View`
     justify-content: space-between;
 `
 export const Title1 = styled.Text`
-    color: #fff;
+    color: #DCF2F1;
     font-size: 20px;
     align-self: center;
     margin-left: 20px;
@@ -28,7 +27,7 @@ export const ImageHeader = styled.Image`
 `
 
 export const Home = ()=>{
-    const [user,setUser] = useState();
+    const [user,setUser] = useState<any>();
     const [posts,setPosts] = useState<IpostService[]>([{body:"k",createdAt:"s", title: "ll", updateAt: "221", UserId: 1}]);
 
 

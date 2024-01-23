@@ -1,35 +1,49 @@
 import { useNavigation } from "@react-navigation/native"
 import {styled} from "styled-components/native"
+import { IpostService } from "../../../services/api"
+
 
 export const PostsView = styled.FlatList`
-    margin-top: 10px;
-    background-color: blue;
+    padding-top: 10px;
+    background-color: #DCF2F1;
     height:350px;
-    padding-left:20px;
     padding-top: 20px;
-`
+    padding-left:16px;
+    padding-right: 12px;
+`;
 export const PostItemV = styled.View`
-    background-color: cyan;
-    min-height: 40px;
+    min-height: 100px;
     max-height: 500px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding-bottom: 10px;
-`
+    padding-top: 5px;
+    padding-left: 10px;
+    border-radius: 30px 30px 30px 30px;
+    background-color: #fff;
+    shadow-color: rgb(0,0,0);
+    shadow-offset: 5px 5px;
+    shadow-radius: 20px;
+    shadow-opacity: 0.8;
+    elevation: 4;
+`;
 export const Title = styled.Text`
-    font-size: 24px;
-    background-color: red;
-`
+    font-size: 26px;
+    margin-bottom:10px;
+`;
 export const Body = styled.Text`
     font-size: 20px;
-`
+`;
 
 export const Posts = ({data})=>{
     const navigation = useNavigation();
     return (
-        <PostsView data={data} keyExtractor={({item})=>item?.id} renderItem={({item})=>{
+      // @ts-ignore
+        <PostsView data={data} keyExtractor={({item}: IpostService)=>item?.id} renderItem={({item}: IpostService)=>{
             return (
+                // @ts-ignore
                 <PostItemV onTouchEnd={()=>{
-                    navigation.navigate("post", {title: item?.title, body: item?.body})
+                    // @ts-ignore
+                    navigation.navigate("post", {id:item.id,title: item?.title, body: item?.body})
                 }}>
                     <Title>
                         {item?.title}
