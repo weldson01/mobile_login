@@ -19,38 +19,41 @@ export const Form = styled.View`
     width: 80%;
     height: 580px;
     padding: 20px 5px 5px 5px;
+    align-items:center;
 `
 
 export const TextHome = styled.Text`
-    font-size:32;
+    font-size:32px;
     color: #FEDDBE;
-    margin-top:16;
-    margin-bottom: 32;
+    margin-top:16px;
+    margin-bottom: 32px;
     align-self: center;
 `
-export const TextLabel = styled.Text`
-    font-size: 24;
-    color: #FEDDBE;
-    text-align: center;
-`
 export const TextInputS = styled.TextInput`
-    font-size: 20;
-    margin-bottom: 48;
-    margin-left:32;
-    margin-right:32;
-    height: 40;
+    font-size: 20px;
+    margin-bottom: 28px;
+    height: 40px;
     padding-left: 12px;
     border-radius: 20px 20px 20px 20px;
     background-color: #f7f7f7;
+    width: 300px;
 
 `
+export const ActionsArea = styled.View`
+    gap:15px;
+`
+
 export const TouchableS = styled.TouchableOpacity`
     background-color: #0A1931;
-    width: 30%;
-    height: 45;
+    width: 300px;
+    height: 45px;
     align-items:center;
     justify-content: center;
     align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px;
+    border-radius: 50px 50px 50px 50px;
 
 `
 export const ImageS = styled.Image`

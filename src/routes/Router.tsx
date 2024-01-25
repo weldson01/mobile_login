@@ -4,6 +4,7 @@ import { Login } from '../screens/Login/Login';
 import { Home } from '../screens/Home/Home';
 import { Postagem } from '../screens/Postagem/Postagem';
 import { EditPost } from '../screens/EditPost/EditPost';
+import { SignUp } from '../screens/SignUp/SignUp';
 
 export const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export const NavigationApp = ()=>{
                 <Stack.Screen name="login" component={Login}/>
                 <Stack.Screen name="post" component={Postagem}/>
                 <Stack.Screen name="editPost" component={EditPost}/>
+                <Stack.Screen name="signUp" component={SignUp} />
             </Stack.Navigator>
         </NavigationContainer>
     )

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Text, Alert } from "react-native"
 import { ILoginServiceReturn, loginService } from "../../services/api"
 import { useNavigation } from "@react-navigation/native"
-import { Form, ImageBackgroundS, ImageS, ScreenHome, TextHome, TextInputS, TextLabel, TouchableS } from "./components"
+import { ActionsArea, Form, ImageBackgroundS, ImageS, ScreenHome, TextHome, TextInputS, TouchableS } from "./components"
 import { getUser, saveUser } from "../../services/userReturnService"
 
 
@@ -46,13 +46,16 @@ export const Login = ()=>{
             <Form>
                 <ImageS source={require("../../assets/login/Perfil-no-photo.jpg")}/>
                 <TextHome>Welcome!</TextHome>
-                <TextLabel>Email:</TextLabel>
                 <TextInputS placeholder="Digite seu email" onChangeText={setEmail}/>
-                <TextLabel>Senha:</TextLabel>
                 <TextInputS placeholder="Digite sua senha" secureTextEntry={true} onChangeText={setPassword}/>
-                <TouchableS style={{borderRadius: 10}} onPress={handleSubmit}>
-                    <Text style={{fontSize:24, color: "#fff"}}>Login</Text>
-                </TouchableS>
+                <ActionsArea>
+                    <TouchableS onPress={handleSubmit}>
+                        <Text style={{fontSize:24, color: "#fff"}}>Login</Text>
+                    </TouchableS>
+                    <TouchableS onPress={handleSubmit} style={{backgroundColor:"rgba(255,255,255,0)"}}>
+                        <Text style={{fontSize:24, color: "#fff"}}>Criar conta</Text>
+                    </TouchableS>
+                </ActionsArea>
             </Form>
         </ImageBackgroundS>
     </ScreenHome>)
