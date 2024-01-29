@@ -46,3 +46,18 @@ export const putPostService = async ({token, id, title, body})=>{
     }
     
 }
+
+
+export const createUser = async (name:string, email:string, password:string)=>{
+    try{
+        const result = await api.post("/users", {name,email,password});
+        if(result){
+            return {type: "success", message: "The account was created"}
+        }
+    }catch(err){
+        console.log(err);
+        console.log("errrrooo")
+        return {type: "error", message: "The account wasn't created"}
+    }
+
+}

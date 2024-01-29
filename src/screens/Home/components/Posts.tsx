@@ -4,9 +4,9 @@ import { IpostService } from "../../../services/api"
 
 
 export const PostsView = styled.FlatList`
+    flex:1;
     padding-top: 10px;
-    background-color: #DCF2F1;
-    height:350px;
+    background-color: #EEEEEE;
     padding-top: 20px;
     padding-left:16px;
     padding-right: 12px;
@@ -17,7 +17,7 @@ export const PostItemV = styled.View`
     margin-bottom: 15px;
     padding-bottom: 10px;
     padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 20px;
     border-radius: 30px 30px 30px 30px;
     background-color: #fff;
     shadow-color: rgb(0,0,0);

@@ -38,8 +38,13 @@ export const Login = ()=>{
         }else{
             Alert.alert("Error", "Your acount is not found! try again!");
         }
+    }
+    
+    function handleSignUp(){
+        // @ts-ignore
+        navigation.navigate("signUp");
+    }
 
-    }   
     return (
     <ScreenHome>
         <ImageBackgroundS source={require("../../assets/login/background-login.jpg")}>
@@ -52,7 +57,7 @@ export const Login = ()=>{
                     <TouchableS onPress={handleSubmit}>
                         <Text style={{fontSize:24, color: "#fff"}}>Login</Text>
                     </TouchableS>
-                    <TouchableS onPress={handleSubmit} style={{backgroundColor:"rgba(255,255,255,0)"}}>
+                    <TouchableS onPress={handleSignUp} style={{backgroundColor:"rgba(255,255,255,0)"}}>
                         <Text style={{fontSize:24, color: "#fff"}}>Criar conta</Text>
                     </TouchableS>
                 </ActionsArea>

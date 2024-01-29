@@ -4,9 +4,10 @@ import { getUser } from "../../services/userReturnService";
 import { StatusBar } from "expo-status-bar";
 import { IpostService, postService } from "../../services/api";
 import { Posts } from "./components/Posts";
+import { BtnCreatePost } from "./components/BtnCreatePost";
 
 export const Header = styled.View`
-    background-color: #0F1035;
+    background-color: #222831;
     align-items:center;
     justify-content:center;
     height: 75px;
@@ -14,15 +15,15 @@ export const Header = styled.View`
     justify-content: space-between;
 `
 export const Title1 = styled.Text`
-    color: #DCF2F1;
+    color: #EEEEEE;
     font-size: 20px;
     align-self: center;
     margin-left: 20px;
 `
 export const ImageHeader = styled.Image`
-    height: 70px;
-    width: 70px;
-    margin-right: 20px;
+    height: 60px;
+    width: 60px;
+    margin-right: 30px;
     border-radius: 50px;
 `
 
@@ -57,6 +58,7 @@ export const Home = ()=>{
             <ImageHeader source={require("../../assets/login/Perfil-no-photo.jpg")}></ImageHeader>
         </Header>
             <Posts data={posts} />
+            <BtnCreatePost />
         </>
     )
 }

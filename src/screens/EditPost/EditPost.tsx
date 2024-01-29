@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { putPostService } from "../../services/api";
 
 
+
+
 export const EditPost = ({route,navigation})=>{
     const {id, title, body} = route.params;
     const [token, setToken] = useState("");

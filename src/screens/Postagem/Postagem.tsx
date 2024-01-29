@@ -1,6 +1,23 @@
 import { useNavigation } from "@react-navigation/native";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { ScrollView,Text, TouchableOpacity } from "react-native"
+import styled from "styled-components/native";
 
+
+export const Container = styled.ScrollView`
+    flex:1;
+    padding: 0px 10px 10px 20px;
+`
+export const TitleStyled = styled.Text`
+    font-size:24px;
+    color: #EEE;
+`
+export const BodyText = styled.Text`
+
+`
+
+
+
+export const text = styled.Text``
 
 export const Postagem = ({route})=>{
     const item = route.params;
@@ -12,15 +29,17 @@ export const Postagem = ({route})=>{
         navigation.navigate("editPost", {id:item.id, title:item.title, body:item.body});
     }
 
-    return (<ScrollView>
-        <Text key={0} style={{fontSize:30}}> 
+    return (
+    <Container>
+        <TitleStyled> 
             {item && item?.title}
-        </Text>
-        <Text key={0} style={{fontSize:30}}> 
+        </TitleStyled>
+        <BodyText key={0} style={{fontSize:30}}> 
             {item && item?.body}
-        </Text>
+            
+        </BodyText>
         <TouchableOpacity onPress={handleEditPost}>
             <Text>Editar Postagem</Text>
         </TouchableOpacity>
-    </ScrollView>)
+    </Container>)
 }
